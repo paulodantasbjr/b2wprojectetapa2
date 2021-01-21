@@ -8,33 +8,25 @@ const Logar = () => {
         <title>Logar</title>
       </Head>
       <form className="mx-auto my-4" style={{ maxWidth: '500px' }}>
-        <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
+        <div className="form-group mb-3">
+          <label htmlFor="InputEmail" className="form-label">
             Email
           </label>
-          <input
-            type="email"
-            className="form-control"
-            id="exampleInputEmail1"
-          />
+          <input type="email" className="form-control" id="InputEmail" />
         </div>
-        <div className="mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">
+        <div className="form-group mb-3">
+          <label htmlFor="InputPassword" className="form-label">
             Senha
           </label>
-          <input
-            type="password"
-            className="form-control"
-            id="exampleInputPassword1"
-          />
+          <input type="password" className="form-control" id="InputPassword" />
         </div>
         <button type="submit" className="btn btn-dark w-100">
           Entrar
         </button>
         <p className="my-2">
           Não tem conta?
-          <Link href="/cadastro">
-            <a style={{ color: 'crimson' }}>Criar conta</a>
+          <Link href="/cadastrar">
+            <a style={{ color: 'crimson' }}> Criar conta</a>
           </Link>
         </p>
       </form>

@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 const NavBar = () => {
   const router = useRouter();
 
-  //Verificar qual link recebera a class active
+  //Verificar qual link recebera o className " active"
   const isActive = (resposta) => {
     if (resposta === router.pathname) {
       return ' active';
