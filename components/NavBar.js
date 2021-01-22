@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { DataContext } from '../store/GlobalState';
@@ -7,7 +7,17 @@ import Cookie from 'js-cookie';
 const NavBar = () => {
   const router = useRouter();
   const { state, dispatch } = useContext(DataContext);
-  const { auth } = state;
+  const { auth, cart, color } = state;
+
+  const [selectColor, setSelectColor] = useState('danger');
+
+  const handleChange = (e) => {
+    setSelectColor(e.target.value);
+    dispatch({
+      type: 'ELEMENT',
+      payload: { color: selectColor },
+    });
+  };
 
   const loggedRouter = () => {
     return (
@@ -63,10 +73,15 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav
+      className={`navbar navbar-expand-lg navbar-dark bg-${
+        selectColor === 'primary' ? 'primary' : 'danger'
+      } px-3`}
+    >
       <Link href="/">
         <a className="navbar-brand">B2WDesafio</a>
       </Link>
+
       <button
         className="navbar-toggler"
         type="button"
@@ -79,33 +94,58 @@ const NavBar = () => {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div
-        className="collapse navbar-collapse justify-content-end"
+        className="collapse navbar-collapse justify-content-between"
         id="navbarNavDropdown"
       >
-        <ul className="navbar-nav p-1">
-          <li className="nav-item">
-            <Link href="/carrinho">
-              <a className={'nav-link' + isActive('/carrinho')}>
-                <i
-                  className="fas fa-shopping-cart position-relative"
-                  aria-hidden="true"
-                ></i>
-                Carrinho
-              </a>
-            </Link>
-          </li>
-          {Object.keys(auth).length === 0 ? (
+        <div className="my-0 mx-auto ">
+          <select value={selectColor} onChange={(e) => handleChange(e)}>
+            {color.map((item, index) => (
+              <option key={index} value={item.color}>
+                {item.name}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <ul className="navbar-nav p-1">
             <li className="nav-item">
-              <Link href="/logar">
-                <a className={'nav-link' + isActive('/logar')}>
-                  <i className="fas fa-user" aria-hidden="true"></i> Entrar
+              <Link href="/carrinho">
+                <a className={'nav-link' + isActive('/carrinho')}>
+                  <i
+                    className="fas fa-shopping-cart position-relative"
+                    aria-hidden="true"
+                  >
+                    <span
+                      className="position-absolute"
+                      style={{
+                        padding: '3px 6px',
+                        background: '#FBE18F',
+                        borderRadius: '50%',
+                        top: '-10px',
+                        right: '-10px',
+                        color: 'white',
+                        fontSize: '14px',
+                      }}
+                    >
+                      {cart.length}
+                    </span>
+                  </i>
                 </a>
               </Link>
             </li>
-          ) : (
-            loggedRouter()
-          )}
-        </ul>
+            {Object.keys(auth).length === 0 ? (
+              <li className="nav-item">
+                <Link href="/logar">
+                  <a className={'nav-link' + isActive('/logar')}>
+                    <i className="fas fa-user" aria-hidden="true"></i> Entrar
+                  </a>
+                </Link>
+              </li>
+            ) : (
+              loggedRouter()
+            )}
+          </ul>
+        </div>
       </div>
     </nav>
   );

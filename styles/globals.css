@@ -21,3 +21,5 @@ img {
 
 /* ---------------------loading--------------------- */
 @import url('./loading.css');
+
+@import url('./pokemon.css');

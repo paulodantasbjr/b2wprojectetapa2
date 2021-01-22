@@ -1,0 +1,24 @@
+.pokemon {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  justify-content: center;
+  margin: 20px 0;
+}
+.pokemon .card {
+  margin: 10px auto;
+}
+.pokemon .card-img-top {
+  height: 250px;
+  width: 100%;
+}
+.pokemon .card-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pokemon .card-text {
+  height: 70px;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}

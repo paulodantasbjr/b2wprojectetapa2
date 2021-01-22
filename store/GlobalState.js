@@ -8,6 +8,12 @@ export const DataProvider = ({ children }) => {
   const initialState = {
     notify: {},
     auth: {},
+    cart: [],
+    color: [
+      { color: 'danger', name: 'Fogo' },
+      { color: 'primary', name: 'Água' },
+    ],
+    element: {},
   };
 
   const [state, dispatch] = useReducer(reducers, initialState);

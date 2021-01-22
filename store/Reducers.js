@@ -12,6 +12,21 @@ const reducers = (state, action) => {
         ...state,
         auth: action.payload,
       };
+    case ACTIONS.ADD_CART:
+      return {
+        ...state,
+        cart: action.payload,
+      };
+    case ACTIONS.COLOR:
+      return {
+        ...state,
+        color: action.payload,
+      };
+    case ACTIONS.ELEMENT:
+      return {
+        ...state,
+        element: action.payload,
+      };
 
     default:
       return state;
