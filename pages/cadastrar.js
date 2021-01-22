@@ -11,7 +11,7 @@ const Cadastrar = () => {
   const [userData, setUserData] = useState(initialState);
   const { name, email, password, cf_password } = userData;
 
-  const { state, dispatch } = useContext(DataContext);
+  const { dispatch } = useContext(DataContext);
   const { auth } = state;
 
   const router = useRouter();
@@ -36,6 +36,11 @@ const Cadastrar = () => {
 
     return dispatch({ type: 'NOTIFY', payload: { success: res.msg } });
   };
+
+  useEffect(() => {
+    if (Object.keys(auth).length !== 0) router.push('/');
+  }, [auth]);
+
   return (
     <div>
       <Head>
