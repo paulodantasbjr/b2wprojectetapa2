@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState, useContext, useEffect } from 'react';
-import valid from '../utils/validar';
+import valid from '../utils/valid';
 import { DataContext } from '../store/GlobalState';
 import { postData } from '../utils/fetchData';
 import { useRouter } from 'next/router';
 
-const Cadastrar = () => {
+const Register = () => {
   const initialState = { name: '', email: '', password: '', cf_password: '' };
   const [userData, setUserData] = useState(initialState);
   const { name, email, password, cf_password } = userData;
@@ -29,7 +29,7 @@ const Cadastrar = () => {
 
     dispatch({ type: 'NOTIFY', payload: { loading: true } });
 
-    const res = await postData('auth/cadastrar', userData);
+    const res = await postData('auth/register', userData);
 
     if (res.err)
       return dispatch({ type: 'NOTIFY', payload: { error: res.err } });
@@ -103,7 +103,7 @@ const Cadastrar = () => {
         </button>
         <p className="my-2">
           Já possui conta?
-          <Link href="/logar">
+          <Link href="/signin">
             <a style={{ color: 'crimson' }}> Entrar agora</a>
           </Link>
         </p>
@@ -112,4 +112,4 @@ const Cadastrar = () => {
   );
 };
 
-export default Cadastrar;
+export default Register;

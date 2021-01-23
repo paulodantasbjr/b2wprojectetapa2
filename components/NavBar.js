@@ -109,8 +109,8 @@ const NavBar = () => {
         <div>
           <ul className="navbar-nav p-1">
             <li className="nav-item">
-              <Link href="/carrinho">
-                <a className={'nav-link' + isActive('/carrinho')}>
+              <Link href="/cart">
+                <a className={'nav-link' + isActive('/cart')}>
                   <i
                     className="fas fa-shopping-cart position-relative"
                     aria-hidden="true"
@@ -135,8 +135,8 @@ const NavBar = () => {
             </li>
             {Object.keys(auth).length === 0 ? (
               <li className="nav-item">
-                <Link href="/logar">
-                  <a className={'nav-link' + isActive('/logar')}>
+                <Link href="/signin">
+                  <a className={'nav-link' + isActive('/signin')}>
                     <i className="fas fa-user" aria-hidden="true"></i> Entrar
                   </a>
                 </Link>

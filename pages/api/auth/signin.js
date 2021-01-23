@@ -1,21 +1,18 @@
 import connectDB from '../../../utils/connectDB';
 import Users from '../../../models/userModel';
 import bcrypt from 'bcrypt';
-import {
-  createAccessToken,
-  createRefreshToken,
-} from '../../../utils/geradorDeToken';
+import { createAccessToken } from '../../../utils/geradorDeToken';
 
 connectDB();
 
 export default async (req, res) => {
   switch (req.method) {
     case 'POST':
-      await logar(req, res);
+      await signin(req, res);
       break;
   }
 };
-const logar = async (req, res) => {
+const signin = async (req, res) => {
   try {
     const { email, password } = req.body;
 

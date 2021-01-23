@@ -1,6 +1,6 @@
 import connectDB from '../../../utils/connectDB';
 import Users from '../../../models/userModel';
-import valid from '../../../utils/validar';
+import valid from '../../../utils/valid';
 import bcrypt from 'bcrypt';
 
 connectDB();
@@ -8,11 +8,11 @@ connectDB();
 export default async (req, res) => {
   switch (req.method) {
     case 'POST':
-      await cadastrar(req, res);
+      await add(req, res);
       break;
   }
 };
-const cadastrar = async (req, res) => {
+const add = async (req, res) => {
   try {
     const { name, email, password, cf_password } = req.body;
 

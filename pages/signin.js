@@ -6,7 +6,7 @@ import { postData } from '../utils/fetchData';
 import Cookie from 'js-cookie';
 import { useRouter } from 'next/router';
 
-const Logar = () => {
+const SignIn = () => {
   const initialState = { email: '', password: '' };
   const [userData, setUserData] = useState(initialState);
   const { email, password } = userData;
@@ -27,7 +27,7 @@ const Logar = () => {
 
     dispatch({ type: 'NOTIFY', payload: { loading: true } });
 
-    const res = await postData('auth/logar', userData);
+    const res = await postData('auth/signin', userData);
 
     if (res.err) {
       return dispatch({ type: 'NOTIFY', payload: { error: res.err } });
@@ -95,7 +95,7 @@ const Logar = () => {
         </button>
         <p className="my-2">
           Não tem conta?
-          <Link href="/cadastrar">
+          <Link href="/register">
             <a style={{ color: 'crimson' }}> Criar conta</a>
           </Link>
         </p>
@@ -103,4 +103,4 @@ const Logar = () => {
     </div>
   );
 };
-export default Logar;
+export default SignIn;
