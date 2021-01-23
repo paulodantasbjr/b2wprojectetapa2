@@ -4,7 +4,8 @@ import PokemonItem from '../components/pokemon/PokemonItem';
 import { DataContext } from '../store/GlobalState';
 
 const Pokemon = ({ pokemonWater, pokemonFire }) => {
-  const img = '/censored.jpg';
+  const imgWater = '/imgWater.png';
+  const imgFire = '/imgFire.png';
 
   const inicialState = {
     water: pokemonWater,
@@ -27,12 +28,17 @@ const Pokemon = ({ pokemonWater, pokemonFire }) => {
           <h2>Não foi achado nenhum pokemon</h2>
         ) : (
           pokemonWater.pokemon.map((poke, index) => (
-            <PokemonItem key={index} pokemon={poke} img={img} data={data} />
+            <PokemonItem
+              key={index}
+              pokemon={poke}
+              img={imgWater}
+              data={data}
+            />
           ))
         )
       ) : (
         pokemonFire.pokemon.map((poke, index) => (
-          <PokemonItem key={index} pokemon={poke} img={img} data={data} />
+          <PokemonItem key={index} pokemon={poke} img={imgFire} data={data} />
         ))
       )}
     </div>

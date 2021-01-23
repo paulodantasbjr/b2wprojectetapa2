@@ -11,7 +11,7 @@ const Cadastrar = () => {
   const [userData, setUserData] = useState(initialState);
   const { name, email, password, cf_password } = userData;
 
-  const { dispatch } = useContext(DataContext);
+  const { state, dispatch } = useContext(DataContext);
   const { auth } = state;
 
   const router = useRouter();
