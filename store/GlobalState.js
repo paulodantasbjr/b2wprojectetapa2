@@ -21,13 +21,13 @@ export const DataProvider = ({ children }) => {
   const { cart } = state;
 
   useEffect(() => {
-    const __next__cart = JSON.parse(localStorage.getItem('__next__cart'));
+    const __poke__cart = JSON.parse(localStorage.getItem('__poke__cart'));
 
-    if (__next__cart) dispatch({ type: 'ADD_CART', payload: __next__cart });
+    if (__poke__cart) dispatch({ type: 'ADD_CART', payload: __poke__cart });
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('__next__cart', JSON.stringify(cart));
+    localStorage.setItem('__poke__cart', JSON.stringify(cart));
   }, [cart]);
 
   useEffect(() => {

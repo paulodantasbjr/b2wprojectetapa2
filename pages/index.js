@@ -19,28 +19,32 @@ const Pokemon = ({ pokemonWater, pokemonFire }) => {
   const { element } = state;
 
   return (
-    <div className="pokemon">
+    <div>
       <Head>
         <title>Pokemons</title>
       </Head>
-      {element.color === 'danger' ? (
-        pokemonWater.pokemon.length === 0 ? (
-          <h2>Não foi achado nenhum pokemon</h2>
+
+      <div className="pokemon">
+        {element.color === 'danger' ? (
+          pokemonWater.pokemon.length === 0 &&
+          pokemonFire.pokemon.length === 0 ? (
+            <h2>Não foi achado nenhum pokemon</h2>
+          ) : (
+            pokemonWater.pokemon.map((poke, index) => (
+              <PokemonItem
+                key={index}
+                pokemon={poke}
+                img={imgWater}
+                data={data}
+              />
+            ))
+          )
         ) : (
-          pokemonWater.pokemon.map((poke, index) => (
-            <PokemonItem
-              key={index}
-              pokemon={poke}
-              img={imgWater}
-              data={data}
-            />
+          pokemonFire.pokemon.map((poke, index) => (
+            <PokemonItem key={index} pokemon={poke} img={imgFire} data={data} />
           ))
-        )
-      ) : (
-        pokemonFire.pokemon.map((poke, index) => (
-          <PokemonItem key={index} pokemon={poke} img={imgFire} data={data} />
-        ))
-      )}
+        )}
+      </div>
     </div>
   );
 };

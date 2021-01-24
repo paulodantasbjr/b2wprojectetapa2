@@ -21,7 +21,8 @@ const Carrinho = () => {
   }, [cart]);
 
   const handleClick = () => {
-    dispatch({ type: 'ADD_CART', payload: { total } });
+    dispatch({ type: 'ADD_MODAL', payload: { total } });
+    dispatch({ type: 'ADD_CART', payload: [] });
   };
 
   if (cart.length === 0) {
