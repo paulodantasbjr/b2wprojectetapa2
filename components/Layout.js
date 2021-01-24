@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from './NavBar';
 import Notify from './Notify';
+import Modal from './Modal';
 
 const Layout = ({ children }) => {
   return (
@@ -8,6 +9,7 @@ const Layout = ({ children }) => {
       <NavBar />
       <div className="container">
         <Notify />
+        <Modal />
         {children}
       </div>
     </div>

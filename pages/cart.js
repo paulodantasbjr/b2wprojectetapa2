@@ -20,9 +20,8 @@ const Carrinho = () => {
     getTotal();
   }, [cart]);
 
-  const handleClick = (e) => {
-    alert('clicou');
-    dispatch({ type: 'NOTIFY', payload: { total } });
+  const handleClick = () => {
+    dispatch({ type: 'ADD_CART', payload: { total } });
   };
 
   if (cart.length === 0) {
@@ -44,7 +43,12 @@ const Carrinho = () => {
         <table className="table my-3">
           <tbody>
             {cart.map((item, index) => (
-              <CartItem key={index} item={item} />
+              <CartItem
+                key={index}
+                item={item}
+                dispatch={dispatch}
+                cart={cart}
+              />
             ))}
           </tbody>
         </table>
