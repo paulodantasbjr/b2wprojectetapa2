@@ -1,7 +1,7 @@
 import connectDB from '../../../utils/connectDB';
 import Users from '../../../models/userModel';
 import bcrypt from 'bcrypt';
-import { createAccessToken } from '../../../utils/geradorDeToken';
+import { createAccessToken } from '../../../utils/tokenGenerator';
 
 connectDB();
 
