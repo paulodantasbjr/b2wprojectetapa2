@@ -37,7 +37,8 @@ Projeto inteiro foi feito usando o
   - Usando [jwt](https://jwt.io/) para guardar as informações do usuario logado
 - Fetch da api do pokemom https://pokeapi.co/
   - Usando as novas funções do [Next.js](https://nextjs.org/docs) que para esse projeto eu escolhi getServerSideProps para fazer o fetch no lado do servidor
-  - Não achei nessa api a foto do pokemon - coloquei dentro da pasta public duas fotos para representar os pokemons
+  - Não achei nessa api a foto do pokemon - coloquei dentro da pasta public duas fotos para representar os pokemon.
+- Css, Usei [BootStrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) somente pela praticidade.
 
 ## Detalhes de negócio (inventadas por mim rsrs)
 
