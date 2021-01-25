@@ -1,9 +1,7 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Como começar
 
-- Faço o clone do app
-- Abra o terminal
+- Faça o clone do app.
+- Abra o terminal.
 
 ```bash
 npm run dev
@@ -11,20 +9,20 @@ npm run dev
 yarn dev
 ```
 
-Abra o navegador e digite [http://localhost:3000](http://localhost:3000) para ver o resultado
+Abra o navegador e digite [http://localhost:3000](http://localhost:3000) para ver o resultado.
 
 ## Desafio
 
 - MVP
   - Catálogo de produtos - Feito usando fetch do [pokemom](https://pokeapi.co/)
-  - Carrinho lateral - Feito de forma que ao adicionar o pokemon ele apareça na NavBar a contagem de item idicionado
-  - Resumo do carrinho - Ao clicar no carrinho de compra da navbar é direcionado para a pagina de carrinho onde é mostrado o detalhe dos pokemons assim como o quantidade do pokemon que deseja
-  - 2 lojas com estilos e tipos diferentes de Pokémon - Para esse cenario eu simulei a troca de cor de layout e de pokemon de acordo com o elemento selecionado na navbar. - Para pokemon de fogo - https://pokeapi.co/api/v2/type/10 - Para pokemon de agua - https://pokeapi.co/api/v2/type/11
+  - Carrinho lateral - Feito de forma que ao adicionar o pokemon, ele apareça na NavBar, a contagem de item adicionado.
+  - Resumo do carrinho - Ao clicar no carrinho de compra da navbar é direcionado para a pagina de carrinho onde é mostrado o detalhe dos pokemons assim como o quantidade do pokemon que deseja.
+  - 2 lojas com estilos e tipos diferentes de Pokémon - Para esse cenario eu simulei a troca de cor de layout e de pokemon de acordo com o elemento selecionado na navbar. - Para pokemon de fogo - https://pokeapi.co/api/v2/type/10 - Para pokemon de agua - https://pokeapi.co/api/v2/type/11.
 
 ## A mais
 
 - Botão de finalizar compra, reiniciando o processo de compra
-- Pagina de obrigado ao finalizar compra
+- Página de obrigado ao finalizar compra
 - Salvar os dados da compra do usuário localmente para não perdê-las ao atualizar a página
 - Criação de "estoque" para limitar a compra de pokemon
 
@@ -41,17 +39,15 @@ Projeto inteiro foi feito usando o
   - Usando as novas funções do [Next.js](https://nextjs.org/docs) que para esse projeto eu escolhi getServerSideProps para fazer o fetch no lado do servidor
   - Não achei nessa api a foto do pokemon - coloquei dentro da pasta public duas fotos para representar os pokemons
 
-## Detalhes do negocio
+## Detalhes de negócio (inventadas por mim rsrs)
 
-Regras de nogocio (inventadas por mim rsrs)
-
-- Todos os campos do login e cadastro de usuario devem ser preenchidos
-- Em cadastro de usuario
+- Todos os campos do login e cadastro de usuário devem ser preenchidos
+- Em cadastro de usuário
   - Deve conter um email valido
   - As senhas devem ser iguais
-- NavBar possui um select/option com as opções de pokemon do tipo agua e fogo
+- NavBar possui um select/option com as opções de pokemon do tipo água e fogo
   -pode comprar qualquer pokemon de qualquer tipo
 - Ao adicionar ao carrinho
   - Pode aumentar a quantidade dependendo do pokemon em estoque
-- A compra so pode ser feita caso tenha feito login
+- A compra somente pode ser feita caso tenha feito login
 - Ao finalizar a compra e direcionado para pagina dizendo o quanto recebeu de cashback
