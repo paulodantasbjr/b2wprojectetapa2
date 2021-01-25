@@ -48,9 +48,11 @@ const NavBar = () => {
             <a className="dropdown-item">Profile</a>
           </Link>
           <div className="dropdown-divider"></div>
-          <button className="dropdown-item" onClick={handleLogout}>
-            Logout
-          </button>
+          <Link href={'/'}>
+            <button className="dropdown-item" onClick={handleLogout}>
+              Logout
+            </button>
+          </Link>
         </div>
       </li>
     );
