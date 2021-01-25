@@ -1,8 +1,9 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Como começar
 
-First, run the development server:
+- Faço o clone do app
+- Abra o terminal
 
 ```bash
 npm run dev
@@ -10,25 +11,47 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra o navegador e digite [http://localhost:3000](http://localhost:3000) para ver o resultado
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Desafio
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- MVP
+  - Catálogo de produtos - Feito usando fetch do [pokemom](https://pokeapi.co/)
+  - Carrinho lateral - Feito de forma que ao adicionar o pokemon ele apareça na NavBar a contagem de item idicionado
+  - Resumo do carrinho - Ao clicar no carrinho de compra da navbar é direcionado para a pagina de carrinho onde é mostrado o detalhe dos pokemons assim como o quantidade do pokemon que deseja
+  - 2 lojas com estilos e tipos diferentes de Pokémon - Para esse cenario eu simulei a troca de cor de layout e de pokemon de acordo com o elemento selecionado na navbar. - Para pokemon de fogo - https://pokeapi.co/api/v2/type/10 - Para pokemon de agua - https://pokeapi.co/api/v2/type/11
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## A mais
 
-## Learn More
+- Botão de finalizar compra, reiniciando o processo de compra
+- Pagina de obrigado ao finalizar compra
+- Salvar os dados da compra do usuário localmente para não perdê-las ao atualizar a página
+- Criação de "estoque" para limitar a compra de pokemon
 
-To learn more about Next.js, take a look at the following resources:
+## Detalhes do projeto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Projeto inteiro foi feito usando o
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Criado GlobalState usando [useContext](https://pt-br.reactjs.org/docs/hooks-reference.html#usecontext)
+- Criado as paginas de login e de cadastro
+  - Usando o proprio framework do [Next.js](https://nextjs.org/docs)
+  - Usando [MongoDB](https://docs.mongodb.com/cloud/) para persistir os dados de cadastro
+  - Usando [jwt](https://jwt.io/) para guardar as informações do usuario logado
+- Fetch da api do pokemom https://pokeapi.co/
+  - Usando as novas funções do [Next.js](https://nextjs.org/docs) que para esse projeto eu escolhi getServerSideProps para fazer o fetch no lado do servidor
+  - Não achei nessa api a foto do pokemon - coloquei dentro da pasta public duas fotos para representar os pokemons
 
-## Deploy on Vercel
+## Detalhes do negocio
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Regras de nogocio (inventadas por mim rsrs)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Todos os campos do login e cadastro de usuario devem ser preenchidos
+- Em cadastro de usuario
+  - Deve conter um email valido
+  - As senhas devem ser iguais
+- NavBar possui um select/option com as opções de pokemon do tipo agua e fogo
+  -pode comprar qualquer pokemon de qualquer tipo
+- Ao adicionar ao carrinho
+  - Pode aumentar a quantidade dependendo do pokemon em estoque
+- A compra so pode ser feita caso tenha feito login
+- Ao finalizar a compra e direcionado para pagina dizendo o quanto recebeu de cashback
